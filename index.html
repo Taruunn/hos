@@ -17,8 +17,8 @@
       html {
         margin: 0;
         padding: 0;
-        height: 100%;
-
+       
+        max-height: 100vh;
         font-family: "Syne", sans-serif;
         font-optical-sizing: auto;
         font-weight: 500;
@@ -116,7 +116,9 @@
         transition: transform ease 0.9s;
       }
       .justify-content-center {
-        justify-content: center;
+        -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
       }
     </style>
     <style>
@@ -356,7 +358,9 @@
         margin-top: 1.25rem;
       }
       .flex {
-        display: flex;
+        display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
       }
       .hidden {
         display: none;
@@ -474,7 +478,7 @@
     <div class="w-full overlay h-full"></div>
 
     <div class="bg-[#fcfcfc] bg-main">
-      <header class="fixed z-10 left-auto top-0 w-full px-4 md:px-10 pt-10">
+      <header class="fixed z-10 left-auto top-0 w-full px-4 md:px-10 pt-3 md:pt-10">
         <img src="./logo.svg" class="w-[25%] md:w-[7%] mx-auto md:ml-0" />
       </header>
       <div
@@ -574,7 +578,17 @@
       <div class="w-[100px] h-[100px] absolute cursor" id="pointer-ring">
         <div class="spin flex justify-content-center items-center relative">
           <div id="pointer-dot"></div>
-          <svg viewBox="0 0 500 500" class="">
+          <svg 
+          
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="100"
+          zoomAndPan="magnify"
+         
+          height="100"
+          preserveAspectRatio="xMidYMid meet"
+          version="1.0"
+          viewBox="0 0 500 500" class="">
             <defs>
               <path
                 d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
@@ -583,7 +597,7 @@
             </defs>
 
             <text dy="50" class="scr-btn-text">
-              <textPath xlink:href="#textcircle">
+              <textPath href="#textcircle">
                 House of suman . House of suman .
               </textPath>
             </text>
