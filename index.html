@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coming Soon</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+
+        font-family: "Syne", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+      }
+      .object-cover {
+        object-fit: cover;
+        object-position: -8%;
+      }
+      .scr-btn-text {
+        font-size: 36px;
+        letter-spacing: 12px;
+      }
+      .scr-btn-text {
+        font-weight: 700;
+        letter-spacing: 13px;
+        text-transform: uppercase;
+        fill: #515050;
+        transition: fill 0.2s;
+      }
+      @-moz-keyframes spin {
+        100% {
+          -moz-transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+      @keyframes spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .spin {
+        -webkit-animation: spin 28s linear infinite;
+        -moz-animation: spin 28s linear infinite;
+        animation: spin 28s linear infinite;
+        line-height: 0;
+        left: -55px;
+        z-index: 9;
+        bottom: 40%;
+
+        transition: transform 0.05s linear;
+      }
+      #pointer-dot {
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border: 2.5px solid #515050;
+        position: absolute;
+        border-radius: 4px;
+        z-index: 1;
+        pointer-events: none;
+        transition: border-color 0.5s;
+        transform: translate(-50%, -50%);
+      }
+      #pointer-ring {
+        position: absolute;
+        z-index: 2;
+        pointer-events: none;
+        inset: 0;
+      }
+
+      html {
+        cursor: none !important;
+      }
+
+      a {
+        cursor: none !important;
+      }
+      @media (max-width: 769px) {
+        .bg-main {
+          background: linear-gradient(#e1dfe08c, #cce9ff), url(./sidebar.jpg);
+          background-size: cover;
+        }
+        #pointer-ring {
+          position: absolute;
+          z-index: 2;
+          pointer-events: none;
+          inset: auto;
+          bottom: 7%;
+          right: 0;
+        }
+      }
+      .overlay {
+        background: #515050;
+        position: absolute;
+        inset: 0;
+        z-index: 999;
+        transform: translate(0, 0%);
+        transition: transform ease 0.9s;
+      }
+      .justify-content-center {
+        justify-content: center;
+      }
+    </style>
+    <style>
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: #e5e7eb;
+      }
+      ::after,
+      ::before {
+        --tw-content: "";
+      }
+      :host,
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        margin: 0;
+        line-height: inherit;
+      }
+      hr {
+        height: 0;
+        color: inherit;
+        border-top-width: 1px;
+      }
+      abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      b,
+      strong {
+        font-weight: bolder;
+      }
+      code,
+      kbd,
+      pre,
+      samp {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        font-size: 1em;
+      }
+      small {
+        font-size: 80%;
+      }
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      table {
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      input:where([type="button"]),
+      input:where([type="reset"]),
+      input:where([type="submit"]) {
+        -webkit-appearance: button;
+        background-color: transparent;
+        background-image: none;
+      }
+      :-moz-focusring {
+        outline: auto;
+      }
+      :-moz-ui-invalid {
+        box-shadow: none;
+      }
+      progress {
+        vertical-align: baseline;
+      }
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto;
+      }
+      [type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit;
+      }
+      summary {
+        display: list-item;
+      }
+      blockquote,
+      dd,
+      dl,
+      figure,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      hr,
+      p,
+      pre {
+        margin: 0;
+      }
+      fieldset {
+        margin: 0;
+        padding: 0;
+      }
+      legend {
+        padding: 0;
+      }
+      menu,
+      ol,
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      dialog {
+        padding: 0;
+      }
+      textarea {
+        resize: vertical;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        opacity: 1;
+        color: #9ca3af;
+      }
+      [role="button"],
+      button {
+        cursor: pointer;
+      }
+      :disabled {
+        cursor: default;
+      }
+      audio,
+      canvas,
+      embed,
+      iframe,
+      img,
+      object,
+      svg,
+      video {
+        display: block;
+        vertical-align: middle;
+      }
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+      }
+      [hidden] {
+        display: none;
+      }
+
+      .fixed {
+        position: fixed;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .relative {
+        position: relative;
+      }
+      .left-auto {
+        left: auto;
+      }
+      .top-0 {
+        top: 0px;
+      }
+      .z-10 {
+        z-index: 10;
+      }
+      .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .mb-3 {
+        margin-bottom: 0.75rem;
+      }
+      .mt-5 {
+        margin-top: 1.25rem;
+      }
+      .flex {
+        display: flex;
+      }
+      .hidden {
+        display: none;
+      }
+      .h-\[100px\] {
+        height: 100px;
+      }
+      .h-\[300px\] {
+        height: 300px;
+      }
+      .h-\[100vh\] {
+        height: 100vh;
+      }
+      .h-full {
+        height: 100%;
+      }
+      .w-\[100px\] {
+        width: 100px;
+      }
+      .w-\[300px\] {
+        width: 300px;
+      }
+      .w-\[25\%\] {
+        width: 25%;
+      }
+      .w-full {
+        width: 100%;
+      }
+      .flex-\[60\%\] {
+        flex: 60%;
+      }
+      .items-start {
+        align-items: flex-start;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .gap-5 {
+        gap: 1.25rem;
+      }
+      .overflow-visible {
+        overflow: visible;
+      }
+      .bg-\[\#fcfcfc\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(252 252 252 / var(--tw-bg-opacity));
+      }
+      .object-cover {
+        object-fit: cover;
+      }
+      .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .px-5 {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      .pt-10 {
+        padding-top: 2.5rem;
+      }
+      .text-left {
+        text-align: left;
+      }
+      .text-2xl {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      .text-sm {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+      .text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+      .font-semibold {
+        font-weight: 600;
+      }
+      .uppercase {
+        text-transform: uppercase;
+      }
+      .leading-normal {
+        line-height: 1.5;
+      }
+      .text-\[\#515050\] {
+        --tw-text-opacity: 1;
+        color: rgb(81 80 80 / var(--tw-text-opacity));
+      }
+      @media (min-width: 768px) {
+        .md\:ml-0 {
+          margin-left: 0px;
+        }
+        .md\:block {
+          display: block;
+        }
+        .md\:w-\[7\%\] {
+          width: 7%;
+        }
+        .md\:px-10 {
+          padding-left: 2.5rem;
+          padding-right: 2.5rem;
+        }
+        .md\:pl-10 {
+          padding-left: 2.5rem;
+        }
+        .md\:text-4xl {
+          font-size: 2.25rem;
+          line-height: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full overlay h-full"></div>
+
+    <div class="bg-[#fcfcfc] bg-main">
+      <header class="fixed z-10 left-auto top-0 w-full px-4 md:px-10 pt-10">
+        <img src="./logo.svg" class="w-[25%] md:w-[7%] mx-auto md:ml-0" />
+      </header>
+      <div
+        class="flex w-full overflow-visible items-start h-[100vh] text-[#515050]"
+      >
+        <div
+          class="coming-soon flex-[60%] md:pl-10 px-5 relative flex-column flex h-full items-center justify-content-center"
+        >
+          <div class="w-full text-left">
+            <p class="mb-3 text-xl">Coming Soon</p>
+            <h1 class="md:text-4xl text-2xl font-semibold leading-normal">
+              We're working hard to bring
+              <br />
+              you something amazing. Stay tuned!
+            </h1>
+            <div class="flex mt-5 gap-5">
+              <a href="https://www.instagram.com/house_of_suman">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="25"
+                  zoomAndPan="magnify"
+                  viewBox="0 0 215.25 215.249995"
+                  height="25"
+                  preserveAspectRatio="xMidYMid meet"
+                  version="1.0"
+                >
+                  <g clip-path="url(#d3b1621213)">
+                    <path
+                      fill="transparent"
+                      d="M 0 0 L 214.503906 0 L 214.503906 214.503906 L 0 214.503906 Z M 0 0 "
+                      fill-opacity="1"
+                      fill-rule="nonzero"
+                    />
+                    <path
+                      fill="#515050"
+                      d="M 194.3125 150.40625 C 193.835938 160.851562 192.089844 166.527344 190.636719 170.296875 C 188.691406 175.292969 186.363281 178.867188 182.597656 182.617188 C 178.867188 186.363281 175.292969 188.683594 170.296875 190.609375 C 166.527344 192.082031 160.832031 193.835938 150.386719 194.332031 C 139.09375 194.832031 135.746094 194.9375 107.113281 194.9375 C 78.503906 194.9375 75.128906 194.832031 63.835938 194.332031 C 53.390625 193.835938 47.722656 192.082031 43.953125 190.609375 C 38.929688 188.683594 35.382812 186.363281 31.632812 182.617188 C 27.859375 178.867188 25.535156 175.292969 23.613281 170.296875 C 22.160156 166.527344 20.386719 160.851562 19.9375 150.40625 C 19.386719 139.113281 19.285156 135.714844 19.285156 107.136719 C 19.285156 78.503906 19.386719 75.128906 19.9375 63.835938 C 20.386719 53.390625 22.160156 47.722656 23.613281 43.921875 C 25.535156 38.929688 27.859375 35.375 31.632812 31.628906 C 35.382812 27.882812 38.929688 25.558594 43.953125 23.613281 C 47.722656 22.136719 53.390625 20.410156 63.835938 19.910156 C 75.128906 19.414062 78.503906 19.285156 107.113281 19.285156 C 135.746094 19.285156 139.09375 19.414062 150.386719 19.910156 C 160.832031 20.410156 166.527344 22.136719 170.296875 23.613281 C 175.292969 25.558594 178.867188 27.882812 182.597656 31.628906 C 186.363281 35.375 188.691406 38.929688 190.636719 43.921875 C 192.089844 47.722656 193.835938 53.390625 194.3125 63.835938 C 194.835938 75.128906 194.960938 78.503906 194.960938 107.136719 C 194.960938 135.714844 194.835938 139.113281 194.3125 150.40625 Z M 213.597656 62.957031 C 213.074219 51.542969 211.273438 43.746094 208.601562 36.953125 C 205.878906 29.90625 202.230469 23.933594 196.261719 17.964844 C 190.316406 12.019531 184.34375 8.371094 177.296875 5.617188 C 170.476562 2.96875 162.707031 1.148438 151.285156 0.652344 C 139.867188 0.101562 136.21875 0 107.113281 0 C 78.03125 0 74.355469 0.101562 62.9375 0.652344 C 51.542969 1.148438 43.777344 2.96875 36.925781 5.617188 C 29.90625 8.371094 23.933594 12.019531 17.988281 17.964844 C 12.019531 23.933594 8.371094 29.90625 5.621094 36.953125 C 2.976562 43.746094 1.175781 51.542969 0.625 62.957031 C 0.128906 74.378906 0 78.03125 0 107.136719 C 0 136.21875 0.128906 139.867188 0.625 151.285156 C 1.175781 162.679688 2.976562 170.472656 5.621094 177.296875 C 8.371094 184.316406 12.019531 190.316406 17.988281 196.261719 C 23.933594 202.203125 29.90625 205.878906 36.925781 208.625 C 43.777344 211.273438 51.542969 213.074219 62.9375 213.597656 C 74.355469 214.125 78.03125 214.25 107.113281 214.25 C 136.21875 214.25 139.867188 214.125 151.285156 213.597656 C 162.707031 213.074219 170.476562 211.273438 177.296875 208.625 C 184.34375 205.878906 190.316406 202.203125 196.261719 196.261719 C 202.230469 190.316406 205.878906 184.316406 208.601562 177.296875 C 211.273438 170.472656 213.074219 162.679688 213.597656 151.285156 C 214.125 139.867188 214.25 136.21875 214.25 107.136719 C 214.25 78.03125 214.125 74.378906 213.597656 62.957031 Z M 213.597656 62.957031 "
+                      fill-opacity="1"
+                      fill-rule="nonzero"
+                    />
+                  </g>
+                  <path
+                    fill="#515050"
+                    d="M 107.113281 142.816406 C 87.402344 142.816406 71.40625 126.847656 71.40625 107.136719 C 71.40625 87.394531 87.402344 71.40625 107.113281 71.40625 C 126.828125 71.40625 142.84375 87.394531 142.84375 107.136719 C 142.84375 126.847656 126.828125 142.816406 107.113281 142.816406 Z M 107.113281 52.09375 C 76.726562 52.09375 52.121094 76.753906 52.121094 107.136719 C 52.121094 137.496094 76.726562 162.128906 107.113281 162.128906 C 137.496094 162.128906 162.128906 137.496094 162.128906 107.136719 C 162.128906 76.753906 137.496094 52.09375 107.113281 52.09375 Z M 107.113281 52.09375 "
+                    fill-opacity="1"
+                    fill-rule="nonzero"
+                  />
+                </svg>
+              </a>
+              <a href="tel:+918078653161">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="25"
+                  zoomAndPan="magnify"
+                  viewBox="0 0 215.25 215.249995"
+                  height="25"
+                  preserveAspectRatio="xMidYMid meet"
+                  version="1.0"
+                >
+                  <g clip-path="url(#03572a44d9)">
+                    <path
+                      fill="#515050"
+                      d="M 106.800781 0.195312 C 47.449219 0.394531 0.015625 48.652344 0.789062 108 C 0.859375 113.976562 1.429688 119.902344 2.503906 125.777344 C 3.578125 131.65625 5.136719 137.402344 7.183594 143.015625 C 9.226562 148.628906 11.730469 154.03125 14.6875 159.21875 C 17.648438 164.410156 21.019531 169.316406 24.808594 173.933594 C 25.40625 174.667969 25.882812 175.46875 26.238281 176.347656 C 26.597656 177.222656 26.816406 178.128906 26.898438 179.070312 C 26.980469 180.011719 26.921875 180.945312 26.722656 181.871094 C 26.523438 182.792969 26.195312 183.667969 25.734375 184.492188 L 16.570312 200.914062 C 14.027344 205.46875 18.167969 210.851562 23.222656 209.566406 L 54.261719 201.664062 C 55.34375 201.386719 56.441406 201.308594 57.550781 201.421875 C 58.664062 201.535156 59.71875 201.835938 60.722656 202.324219 C 67.589844 205.660156 74.730469 208.222656 82.148438 210.011719 C 89.566406 211.804688 97.089844 212.78125 104.71875 212.945312 C 164.390625 214.292969 213.371094 166.609375 213.558594 106.921875 C 213.742188 47.886719 165.839844 -0.00390625 106.800781 0.195312 Z M 107.167969 199.863281 C 105.640625 199.863281 104.117188 199.824219 102.59375 199.75 C 101.066406 199.675781 99.546875 199.5625 98.027344 199.414062 C 96.507812 199.265625 94.992188 199.078125 93.480469 198.851562 C 91.972656 198.628906 90.46875 198.367188 88.972656 198.070312 C 87.472656 197.773438 85.984375 197.4375 84.503906 197.066406 C 83.023438 196.695312 81.550781 196.289062 80.089844 195.847656 C 78.628906 195.402344 77.179688 194.925781 75.746094 194.410156 C 74.308594 193.894531 72.882812 193.347656 71.472656 192.761719 C 70.0625 192.179688 68.667969 191.558594 67.285156 190.90625 C 65.90625 190.253906 64.542969 189.570312 63.199219 188.847656 C 61.851562 188.128906 60.523438 187.378906 59.214844 186.59375 C 57.90625 185.808594 56.613281 184.992188 55.347656 184.144531 C 54.078125 183.292969 52.828125 182.417969 51.601562 181.507812 C 50.375 180.597656 49.171875 179.660156 47.992188 178.691406 C 46.8125 177.722656 45.65625 176.726562 44.527344 175.699219 C 43.394531 174.675781 42.289062 173.621094 41.210938 172.542969 C 40.132812 171.464844 39.078125 170.359375 38.054688 169.226562 C 37.027344 168.09375 36.03125 166.941406 35.0625 165.757812 C 34.09375 164.578125 33.15625 163.375 32.246094 162.152344 C 31.335938 160.925781 30.457031 159.675781 29.609375 158.40625 C 28.761719 157.136719 27.945312 155.847656 27.160156 154.539062 C 26.375 153.230469 25.625 151.902344 24.902344 150.554688 C 24.183594 149.210938 23.5 147.847656 22.84375 146.464844 C 22.191406 145.085938 21.574219 143.691406 20.988281 142.28125 C 20.40625 140.871094 19.855469 139.445312 19.34375 138.007812 C 18.828125 136.570312 18.347656 135.121094 17.90625 133.660156 C 17.464844 132.199219 17.054688 130.730469 16.683594 129.25 C 16.3125 127.769531 15.980469 126.277344 15.683594 124.78125 C 15.382812 123.285156 15.125 121.78125 14.898438 120.269531 C 14.675781 118.761719 14.488281 117.246094 14.339844 115.726562 C 14.1875 114.207031 14.078125 112.683594 14 111.160156 C 13.925781 109.636719 13.890625 108.109375 13.890625 106.582031 C 13.890625 55.066406 55.652344 13.304688 107.167969 13.304688 C 158.484375 13.304688 200.125 54.742188 200.445312 105.984375 C 200.769531 157.398438 158.585938 199.863281 107.167969 199.863281 Z M 107.167969 199.863281 "
+                      fill-opacity="1"
+                      fill-rule="nonzero"
+                    />
+                  </g>
+                  <path
+                    fill="#515050"
+                    d="M 90.496094 61.234375 L 90.539062 61.320312 L 96.105469 72.351562 C 96.402344 72.945312 96.652344 73.558594 96.851562 74.195312 C 97.054688 74.828125 97.203125 75.472656 97.296875 76.132812 C 97.394531 76.789062 97.4375 77.449219 97.425781 78.113281 C 97.414062 78.777344 97.351562 79.4375 97.234375 80.09375 C 97.117188 80.746094 96.949219 81.386719 96.726562 82.015625 C 96.507812 82.640625 96.238281 83.246094 95.917969 83.828125 C 95.601562 84.414062 95.238281 84.96875 94.832031 85.492188 C 94.421875 86.015625 93.976562 86.507812 93.488281 86.960938 C 93.003906 87.410156 92.558594 87.894531 92.152344 88.414062 C 91.746094 88.9375 91.386719 89.484375 91.066406 90.066406 C 90.75 90.644531 90.480469 91.246094 90.257812 91.867188 C 90.039062 92.488281 89.867188 93.125 89.75 93.777344 C 89.628906 94.425781 89.5625 95.082031 89.550781 95.742188 C 89.535156 96.402344 89.574219 97.058594 89.667969 97.714844 C 89.757812 98.367188 89.902344 99.011719 90.097656 99.640625 C 90.292969 100.273438 90.539062 100.886719 90.832031 101.476562 C 94.171875 108.183594 99.957031 117.425781 108.785156 124.097656 C 109.777344 124.847656 110.855469 125.4375 112.023438 125.863281 C 113.1875 126.292969 114.390625 126.539062 115.632812 126.601562 C 116.875 126.667969 118.097656 126.546875 119.300781 126.246094 C 120.507812 125.941406 121.640625 125.46875 122.703125 124.824219 L 126.285156 122.644531 C 127.089844 122.15625 127.9375 121.761719 128.832031 121.46875 C 129.722656 121.171875 130.640625 120.980469 131.574219 120.894531 C 132.511719 120.808594 133.445312 120.828125 134.378906 120.957031 C 135.3125 121.085938 136.214844 121.316406 137.097656 121.648438 L 151.335938 127.0625 C 152.09375 127.351562 152.816406 127.710938 153.503906 128.140625 C 154.191406 128.574219 154.832031 129.066406 155.421875 129.621094 C 156.011719 130.179688 156.542969 130.789062 157.011719 131.449219 C 157.484375 132.109375 157.882812 132.8125 158.21875 133.550781 C 158.550781 134.289062 158.804688 135.054688 158.988281 135.847656 C 159.167969 136.636719 159.273438 137.4375 159.296875 138.25 C 159.320312 139.058594 159.265625 139.867188 159.128906 140.664062 C 158.996094 141.464844 158.78125 142.246094 158.496094 143.003906 C 158.328125 143.4375 158.136719 143.863281 157.925781 144.277344 L 153.980469 151.925781 C 153.660156 152.542969 153.289062 153.132812 152.871094 153.6875 C 152.453125 154.242188 151.992188 154.761719 151.484375 155.238281 C 150.976562 155.71875 150.4375 156.148438 149.855469 156.535156 C 149.277344 156.921875 148.671875 157.257812 148.035156 157.542969 C 147.398438 157.824219 146.742188 158.054688 146.070312 158.226562 C 145.394531 158.398438 144.710938 158.515625 144.015625 158.574219 C 143.324219 158.628906 142.628906 158.628906 141.933594 158.570312 C 141.242188 158.511719 140.558594 158.390625 139.882812 158.21875 C 117.515625 152.429688 64.210938 132.316406 59.917969 71.492188 C 59.832031 70.285156 59.921875 69.089844 60.1875 67.910156 C 60.453125 66.730469 60.878906 65.613281 61.472656 64.558594 C 62.066406 63.503906 62.800781 62.554688 63.671875 61.714844 C 64.542969 60.875 65.515625 60.179688 66.59375 59.625 L 73.855469 55.894531 C 74.578125 55.523438 75.328125 55.226562 76.109375 55.003906 C 76.890625 54.78125 77.683594 54.636719 78.492188 54.570312 C 79.300781 54.503906 80.109375 54.515625 80.914062 54.605469 C 81.722656 54.699219 82.511719 54.871094 83.28125 55.117188 C 84.054688 55.367188 84.796875 55.6875 85.507812 56.082031 C 86.214844 56.472656 86.878906 56.933594 87.5 57.457031 C 88.117188 57.984375 88.679688 58.5625 89.183594 59.199219 C 89.6875 59.832031 90.125 60.511719 90.496094 61.234375 Z M 90.496094 61.234375 "
+                    fill-opacity="1"
+                    fill-rule="nonzero"
+                  />
+                </svg>
+              </a>
+            </div>
+            <h1
+              style="
+                position: absolute;
+                bottom: 13%;
+                transform: rotate(90deg);
+                left: -31px;
+                opacity: 0.6;
+                letter-spacing: 2px;
+              "
+              class="text-sm uppercase"
+            >
+              House of suman
+            </h1>
+          </div>
+        </div>
+        <div class="flex-[60%] h-full relative hidden md:block">
+          <img src="./sidebar.jpg" class="h-full w-full object-cover" />
+        </div>
+      </div>
+      <div class="w-[100px] h-[100px] absolute cursor" id="pointer-ring">
+        <div class="spin flex justify-content-center items-center relative">
+          <div id="pointer-dot"></div>
+          <svg viewBox="0 0 500 500" class="">
+            <defs>
+              <path
+                d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
+                id="textcircle"
+              ></path>
+            </defs>
+
+            <text dy="50" class="scr-btn-text">
+              <textPath xlink:href="#textcircle">
+                House of suman . House of suman .
+              </textPath>
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <script>
+      const pointer = document.createElement("div");
+      // pointer.id = "pointer-dot";
+      //const pointer = document.getElementById("pointer-dot");
+      const ring = document.getElementById("pointer-ring");
+      // ring.id = "pointer-ring";
+      //document.body.insertBefore(pointer, document.body.children[0]);
+      // document.body.insertBefore(ring, document.body.children[0]);
+
+      let mouseX = -100;
+      let mouseY = -100;
+      let ringX = -100;
+      let ringY = -100;
+      let isHover = false;
+      let mouseDown = false;
+      const init_pointer = (options) => {
+        window.onmousemove = (mouse) => {
+          mouseX = mouse.clientX;
+          mouseY = mouse.clientY;
+        };
+
+        window.onmousedown = (mouse) => {
+          mouseDown = true;
+        };
+
+        window.onmouseup = (mouse) => {
+          mouseDown = false;
+        };
+
+        const trace = (a, b, n) => {
+          return (1 - n) * a + n * b;
+        };
+        window["trace"] = trace;
+
+        const getOption = (option) => {
+          let defaultObj = {
+            pointerColor: "#750c7e",
+            ringSize: 15,
+            ringClickSize: (options["ringSize"] || 15) - 5,
+          };
+          if (options[option] == undefined) {
+            return defaultObj[option];
+          } else {
+            return options[option];
+          }
+        };
+
+        const render = () => {
+          ringX = trace(ringX, mouseX, 0.2);
+          ringY = trace(ringY, mouseY, 0.2);
+
+          // if (document.querySelector(".p-action-click:hover")) {
+          //   pointer.style.borderColor = getOption("pointerColor");
+          //   isHover = true;
+          // } else {
+          //   pointer.style.borderColor = "white";
+          //   isHover = false;
+          // }
+          //ring.style.borderColor = getOption("pointerColor");
+          // if (mouseDown) {
+          //   ring.style.padding = getOption("ringClickSize") + "px";
+          // } else {
+          //   ring.style.padding = getOption("ringSize") + "px";
+          // }
+
+          pointer.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+          ring.style.transform = `translate(${
+            ringX -
+            (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))
+          }px, ${
+            ringY -
+            (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))
+          }px)`;
+
+          requestAnimationFrame(render);
+        };
+        requestAnimationFrame(render);
+      };
+      if (window.innerWidth > 768) {
+        init_pointer({});
+      }
+      window.onload = function () {
+        document.querySelector(".overlay").style.transform =
+          "translate(0,-100%)";
+      };
+    </script>
+  </body>
+</html>
